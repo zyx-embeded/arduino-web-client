@@ -1,4 +1,3 @@
-const Influx = require('influx');
 const influx = require('../config/dbConfig').influx;
 
 module.exports.checkDatabase = function() {
@@ -42,7 +41,12 @@ module.exports.writeData = function(req, res, next) {
 };
 
 module.exports.getAllData = function(req, res) {
-  influx.query('select * from weather').then(results => {
-    res.json(results);
-  });
+  influx
+    .query('select * from weather')
+    .then(results => {
+      res.status(200).json(results);
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
 };
