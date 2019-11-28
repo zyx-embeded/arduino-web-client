@@ -11,14 +11,14 @@ script(type='text/javascript').
   function drawCurveTypes() {
   var data = new google.visualization.DataTable();
   data.addColumn("number", "X");
-  data.addColumn("number", "Dogs");
-  data.addColumn("number", "Cats");
+  data.addColumn("number", "Humidity (%)");
+  data.addColumn("number", "Temperature (C)");
   data.addRows(
       !{JSON.stringify(sensor)}
   );
   var options = {
   hAxis: {
-  title: "Time"
+  title: "Time (seconds)"
   },
   vAxis: {
   title: "Weather"
