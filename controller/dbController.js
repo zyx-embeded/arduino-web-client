@@ -13,35 +13,33 @@ module.exports.checkDatabase = function() {
     });
 };
 
-module.exports.writeData = function(req, res, next) {
+module.exports.writeData = async function(req, res, next) {
+  try {
   const { temperature, humidity } = req.body;
-  influx
-    .writePoints(
-      [
-        {
-          measurement: 'weather',
-          tag: {
-            sensor: 'DHT11',
-            location: 'DaNang-VN'
-          },
-          fields: {
-            temperature: parseFloat(temperature),
-            humidity: parseFloat(humidity)
+    await influx
+      .writePoints(
+        [
+          {
+            measurement: 'weather',
+            tag: {
+              sensor: 'DHT11',
+              location: 'DaNang-VN'
+            },
+            fields: {
+              temperature: parseFloat(temperature),
+              humidity: parseFloat(humidity)
+            }
           }
-        }
-      ],
-      {
-        database: 'arduino-web-server',
-        precision: 's'
-      },
-    
-    )
-    .then(()=>{
-      res.status(200).json("write data success");
-    })
-    .catch(error => {
-      console.error(error);
-    });
+        ],
+        {
+          database: 'arduino-web-server',
+          precision: 's'
+        });
+        res.status(200).json("Write data into db success");
+  } catch (error) {
+    console.error(error);
+  }
+   
 };
 
 module.exports.getAllData = function(req, res) {
@@ -61,5 +59,3 @@ module.exports.getAllData = function(req, res) {
 
 //pm2
 
-
-//
