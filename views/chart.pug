@@ -1,0 +1,35 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title Document
+script(type='text/javascript' src='https://www.gstatic.com/charts/loader.js')
+script(type='text/javascript').
+  google.charts.load("current", { packages: ["corechart", "line"] });
+  google.charts.setOnLoadCallback(drawCurveTypes);
+  function drawCurveTypes() {
+  var data = new google.visualization.DataTable();
+  data.addColumn("number", "X");
+  data.addColumn("number", "Dogs");
+  data.addColumn("number", "Cats");
+  data.addRows(
+      !{JSON.stringify(sensor)}
+  );
+  var options = {
+  hAxis: {
+  title: "Time"
+  },
+  vAxis: {
+  title: "Weather"
+  },
+  series: {
+  1: { curveType: "function" }
+  }
+  };
+  var chart = new google.visualization.LineChart(
+  document.getElementById("chart_div")
+  );
+  chart.draw(data, options);
+  }
+#chart_div(style='height:100vh;width:100vw')

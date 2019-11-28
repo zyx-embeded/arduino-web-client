@@ -1,8 +1,6 @@
 const express = require('express');
-const exphbs = require('express-handlebars');
 
 const config = require('./config/env').config;
-
 const influx = require('./config/dbConfig').influx;
 const sensorRoute = require('./routes/sensor');
 
@@ -10,8 +8,7 @@ const port = process.env.PORT;
 
 const app = express();
 
-app.engine('handlebars',exphbs());
-app.set('view engine','handlebars');
+app.set('view engine', 'pug');
 
 app.use(express.static('src'));
 
