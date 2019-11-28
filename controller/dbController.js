@@ -33,8 +33,12 @@ module.exports.writeData = function(req, res, next) {
       {
         database: 'arduino-web-server',
         precision: 's'
-      }
+      },
+    
     )
+    .then(()=>{
+      res.status(200).json("write data success");
+    })
     .catch(error => {
       console.error(error);
     });
@@ -50,3 +54,12 @@ module.exports.getAllData = function(req, res) {
       res.status(500).json(error);
     });
 };
+
+//morgan 
+
+//sentry 
+
+//pm2
+
+
+//
