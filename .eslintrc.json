@@ -1,43 +1,43 @@
 {
-  "extends": "eslint:recommended",
-  "rules": {
-    "quotes": ["error", "single"],
-    "camelcase": [
-      "warn",
-      {
-        "ignoreDestructuring": false,
-        "properties": "always"
-      }
-    ],
-    "array-bracket-newline": ["warn", "consistent"],
-    "array-bracket-spacing": [
-      "error",
-      "always",
-      {
-        "singleValue": false,
-        "objectsInArrays": false,
-        "arraysInArrays": false
-      }
-    ],
-    "template-curly-spacing": ["error", "never"],
-    "object-curly-spacing": [
-      "error",
-      "always",
-      {
-        "arraysInObjects": false,
-        "objectsInObjects": false
-      }
-    ]
-  },
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module"
-  },
-  "env": {
-    "node": true,
-    "es6": true
-  },
-  "globals": {
-    "arguments": true
-  }
+  // "extends": "eslint:recommended",
+  // "rules": {
+  //   "quotes": ["error", "single"],
+  //   "camelcase": [
+  //     "warn",
+  //     {
+  //       "ignoreDestructuring": false,
+  //       "properties": "always"
+  //     }
+  //   ],
+  //   "array-bracket-newline": ["warn", "consistent"],
+  //   "array-bracket-spacing": [
+  //     "error",
+  //     "always",
+  //     {
+  //       "singleValue": false,
+  //       "objectsInArrays": false,
+  //       "arraysInArrays": false
+  //     }
+  //   ],
+  //   "template-curly-spacing": ["error", "never"],
+  //   "object-curly-spacing": [
+  //     "error",
+  //     "always",
+  //     {
+  //       "arraysInObjects": false,
+  //       "objectsInObjects": false
+  //     }
+  //   ]
+  // },
+  // "parserOptions": {
+  //   "ecmaVersion": 6,
+  //   "sourceType": "module"
+  // },
+  // "env": {
+  //   "node": true,
+  //   "es6": true
+  // },
+  // "globals": {
+  //   "arguments": true
+  // }
 }

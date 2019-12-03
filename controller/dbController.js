@@ -36,21 +36,21 @@ module.exports.writeData = async function(req, res, next) {
           precision: 's'
         });
         res.status(200).json("Write data into db success");
+        return 
   } catch (error) {
     console.error(error);
   }
    
 };
 
-module.exports.getAllData = function(req, res) {
-  influx
-    .query('select * from weather')
-    .then(results => {
-      res.status(200).json(results);
-    })
-    .catch(error => {
-      res.status(500).json(error);
-    });
+module.exports.getAllData =async function(req, res) {
+    try {
+      let data = await influx.query('select * from weather');
+      return data;
+    } catch (error) {
+      console.log(error);
+      
+    }
 };
 
 //morgan 
