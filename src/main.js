@@ -12,7 +12,7 @@ function init() {
   });
 }
 
-function drawCurveTypes(chartData = []) {
+function drawCurveTypes(chartData) {
   let data = new google.visualization.DataTable();
   data.addColumn("number", "X");
   data.addColumn("number", "Humidity (%)");
